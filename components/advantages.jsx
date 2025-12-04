@@ -47,7 +47,8 @@ export default function Advantages() {
                     alt={advantage.title}
                     width={100}
                     height={50}
-                    className="object-contain w-full"
+                    className="object-contain mx-auto h-52 sm:h-64 md:h-80 w-auto"
+
                   />
                 </div>
               </div>

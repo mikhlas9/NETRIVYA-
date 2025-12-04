@@ -5,11 +5,31 @@ import { useState } from "react"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(null)
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null)
 
   const menuItems = [
     { label: "HOME", href: "#" },
-    { label: "SMS", href: "#", hasDropdown: true },
-    { label: "VOICE", href: "#", hasDropdown: true },
+    { 
+      label: "SMS", 
+      href: "#", 
+      hasDropdown: true,
+      dropdownItems: [
+        { label: "Promotional SMS", href: "#" },
+        { label: "Transactional SMS", href: "#" },
+        { label: "Alert SMS", href: "#" }
+      ]
+    },
+    { 
+      label: "VOICE", 
+      href: "#", 
+      hasDropdown: true,
+      dropdownItems: [
+        { label: "Voice API", href: "#" },
+        { label: "Voice OTP", href: "#" },
+        { label: "Promotional Voice Call", href: "#" }
+      ]
+    },
     { label: "WHATSAPP BUSINESS API", href: "#" },
     { label: "PRICING", href: "#" },
     { label: "CONTACT US", href: "#" },
@@ -34,27 +54,55 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-8">
-            <a href="#" className="text-gray-600 hover:text-teal-600 transition">
-              Details
-            </a>
-            <a href="#" className="text-gray-600 hover:text-teal-600 transition">
-              For Registration
-            </a>
-            <a href="#" className="text-gray-600 hover:text-teal-600 transition">
-              Contact
-            </a>
-            <a href="#" className="text-gray-600 hover:text-teal-600 transition">
-              Blog
-            </a>
+          <nav className="hidden md:flex gap-6 items-center">
+            {menuItems.slice(0, -2).map((item) => (
+              <div
+                key={item.label}
+                className="relative group"
+              >
+                <a
+                  href={item.href}
+                  className="text-gray-600 hover:text-teal-600 transition text-sm font-medium flex items-center gap-1 py-2"
+                  onMouseEnter={() => item.hasDropdown && setOpenDropdown(item.label)}
+                >
+                  {item.label}
+                  {item.hasDropdown && <span className="text-xs">▼</span>}
+                </a>
+                
+                {item.hasDropdown && item.dropdownItems && openDropdown === item.label && (
+                  <div 
+                    className="absolute top-full left-0 pt-2"
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <div className="bg-white shadow-lg rounded-lg py-2 min-w-[220px] border border-gray-200">
+                      {item.dropdownItems.map((dropdownItem) => (
+                        <a
+                          key={dropdownItem.label}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 text-sm"
+                        >
+                          {dropdownItem.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </nav>
 
           {/* Auth Buttons */}
-          <div className="hidden md:flex gap-4">
-            <button className="text-teal-600 hover:text-teal-700 font-semibold transition">Login</button>
-            <button className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">
-              Sign Up
-            </button>
+          <div className="hidden md:flex gap-4 items-center">
+            <a href="#" className="text-teal-600 hover:text-teal-700 font-semibold transition text-sm">
+              LOGIN
+            </a>
+            <a
+              href="#"
+              className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition text-sm"
+            >
+              SIGN UP
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,14 +135,39 @@ export default function Header() {
 
             <div className="space-y-1 flex-1">
               {menuItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="block px-4 py-3 hover:bg-white/10 text-white transition duration-200 text-sm font-medium"
-                >
-                  {item.label}
-                  {item.hasDropdown && <span className="ml-2 text-xs">▼</span>}
-                </a>
+                <div key={item.label}>
+                  {item.hasDropdown && item.dropdownItems ? (
+                    <>
+                      <button
+                        onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.label ? null : item.label)}
+                        className="w-full text-left px-4 py-3 hover:bg-white/10 text-white transition duration-200 text-sm font-medium flex items-center justify-between"
+                      >
+                        <span>{item.label}</span>
+                        <span className={`text-xs transition-transform ${mobileOpenDropdown === item.label ? 'rotate-180' : ''}`}>▼</span>
+                      </button>
+                      {mobileOpenDropdown === item.label && (
+                        <div className="bg-white/10 py-1">
+                          {item.dropdownItems.map((dropdownItem) => (
+                            <a
+                              key={dropdownItem.label}
+                              href={dropdownItem.href}
+                              className="block px-8 py-2 text-white/90 hover:bg-white/10 text-sm"
+                            >
+                              {dropdownItem.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="block px-4 py-3 hover:bg-white/10 text-white transition duration-200 text-sm font-medium"
+                    >
+                      {item.label}
+                    </a>
+                  )}
+                </div>
               ))}
             </div>
           </nav>

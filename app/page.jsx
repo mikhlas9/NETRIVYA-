@@ -11,14 +11,16 @@ import Advantages from "@/components/advantages"
 import FAQ from "@/components/faq"
 import CTA from "@/components/cta"
 import Footer from "@/components/footer"
+import WhySms from "../components/whySms"
 
 export default function Home() {
   return (
     <main className="w-full">
       <Header />
       <Hero />
-      <TrustedBy />
+      {/* <TrustedBy /> */}
       <Features />
+      <WhySms />
       <OutOfBoxFeatures />
       <SMSTypes />
       <Advantages />

@@ -46,7 +46,7 @@ export default function OutOfBoxFeatures() {
         <div className="grid md:grid-cols-3 gap-12">
           {features.map((feature) => (
             <div key={feature.title} className="text-center">
-              <div className="bg-white rounded-lg p-12 mb-6 flex items-center justify-center min-h-64 hover:shadow-lg transition-shadow duration-300">
+<div className="bg-white rounded-lg p-6 mb-6 flex items-center justify-center min-h-40 hover:shadow-lg transition-shadow duration-300">
                 <Image
                   src={feature.icon}
                   alt={`${feature.title} icon`}
