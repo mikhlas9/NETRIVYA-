@@ -5,12 +5,6 @@ import Image from "next/image"
 export default function Advantages() {
   const advantages = [
     {
-      title: "Reseller",
-      desc: "If you are a Media company, Advertising agency or a Web Developer you can take advantage of NETRIVYA Reseller Packages and setup an extra stream of income for yourself. Moreover, you can offer all the NETRIVYA features under your own branding which your customers will definitely Love",
-      image: "/images/reseller.png",
-      position: "left"
-    },
-    {
       title: "Developers",
       desc: "Now you can easily integrate any application and start sending SMS. We have Sample codes for PHP, Java, .NET & more. With NETRIVYA SMS APIs you can Send bulk SMS offers, trigger Transactional updates, Verify OTPs, Get inbound SMS, reports, Update contacts and more",
       image: "/images/developers.png",
@@ -48,7 +42,7 @@ export default function Advantages() {
                     width={100}
                     height={50}
                     className="object-contain mx-auto h-52 sm:h-64 md:h-80 w-auto"
-
+                    style={{ filter: 'hue-rotate(140deg) saturate(0.9)' }}
                   />
                 </div>
               </div>

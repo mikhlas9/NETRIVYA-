@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "NETRIVYA - Global Bulk SMS Solutions",
+  title: "NETRIVYA - Powering Global Business Communication Through Bulk SMS",
   description: "Reliable bulk SMS, WhatsApp and Voice API platform for businesses worldwide",
   generator: "v0.app",
   icons: {

@@ -5,25 +5,22 @@ export default function Features() {
         {/* Main Heading */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-snug">
-            Send Promotional Bulk SMS Campaigns & Add Transactional  Messages
-            to your Apps in a Few Minutes
+          Launch promotional bulk SMS campaigns and integrate transactional messages into your apps within minutes.
           </h2>
           <p className="text-gray-600 text-base leading-relaxed max-w-5xl mx-auto">
-            NETRIVYA helps Businesses and developers enrich their Customer experience, Generate New Leads using Promotional Messages or adding the much secure SMS Alert and Verification Functionality and Transaction SMS with our easy-to-use APIs, Robust Platform, and round the clock support, you can focus on innovating!. We promise to match any competitor Bulk SMS prices with similar features and connectivity. The routes we use are always of the best quality, and we will guarantee you the highest delivery speed.
+          NETRIVYA empowers businesses and developers to enhance customer experiences, generate new leads through promotional messaging, and seamlessly integrate secure SMS alerts, OTP verification, and transactional messaging. With our easy-to-use APIs, robust messaging platform, and 24/7 dedicated support, you can focus on innovation while we handle reliable message delivery. We match any competitor’s bulk SMS pricing with comparable features and connectivity. Our high-quality messaging routes ensure maximum delivery speed, reliability, and reach guaranteed.
           </p>
         </div>
 
         {/* Subheading */}
         <div className="text-center mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-            With Our Bulk SMS Service, Stand Out From the Rest in the Market
+          Stand Out in a Crowded Market with our Powerful Bulk SMS Service
           </h3>
           <p className="text-gray-600 text-base leading-relaxed max-w-5xl mx-auto mb-6">
-            Our one-of-a-kind SMS Gateway allows you to send messages round the clock from anywhere in the world. What you need is a working internet connection. The system is so well devised that completing all tasks is as easy as sitting beneath a leafy tree. By adhering to steps shared with you the provider, you can formulate your campaign and send texts to millions in a matter of minutes.
+          Send bulk SMS anytime, anywhere with our easy-to-use gateway—designed for speed, scale, and simplicity. With industry-leading open rates, SMS outperforms traditional marketing channels.
           </p>
-          <p className="text-gray-600 text-base leading-relaxed max-w-5xl mx-auto">
-            With traditional ways of business promotions losing their relevance, our Bulk SMS services are becoming the norm for enterprises to flourish. It has been concluded in many surveys and studies that the open rate of promotional SMS is as high as 98%, unlike email promotion which has less than 25% open rate.
-          </p>
+      
         </div>
       </div>
     </section>

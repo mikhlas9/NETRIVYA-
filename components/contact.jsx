@@ -34,49 +34,6 @@ export default function Contact() {
     }
   ]
 
-  const contactNumbers = [
-    {
-      countryCode: "AE",
-      countryName: "UAE",
-      phone: "+971-50-35-95083"
-    },
-    {
-      countryCode: "SG",
-      countryName: "Singapore",
-      phone: "+65-315-92108"
-    },
-    {
-      countryCode: "ZM",
-      countryName: "Zambia",
-      phone: "+260-97-8511820"
-    },
-    {
-      countryCode: "US",
-      countryName: "USA",
-      phone: "+1-302-492-9037"
-    },
-    {
-      countryCode: "AU",
-      countryName: "Australia",
-      phone: "+61-29-0988360"
-    }
-  ]
-
-  const offices = [
-    {
-      company: "NETRIVYA Technologies LLC",
-      address: "601, Mai Tower, Al-Nahda First, Dubai, UAE"
-    },
-    {
-      company: "NETRIVYA Pte. Ltd",
-      address: "68 Circular Road, #02-01, 049422, Singapore"
-    },
-    {
-      company: "NETRIVYA Technologies Limited",
-      address: "6955 Haile Selassie Avenue, Lusaka, Zambia"
-    }
-  ]
-
   const faqs = [
     {
       question: "What services does NETRIVYA provide?",
@@ -131,81 +88,6 @@ export default function Contact() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Global Contact Numbers */}
-        <div className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            Global Contact Numbers
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {contactNumbers.map((contact, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0">
-                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
-                      <span className="text-teal-600 font-bold text-lg">
-                        {contact.countryCode}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      {contact.countryName}
-                    </h3>
-                    <div className="flex items-center gap-2 text-teal-600">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      <a
-                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                        className="text-sm font-medium hover:text-teal-700 transition cursor-pointer"
-                      >
-                        {contact.phone}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Our Offices */}
-        <div className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            Our Offices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {offices.map((office, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0">
-                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
-                      <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      {office.company}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {office.address}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Frequently Asked Questions */}
@@ -270,7 +152,7 @@ export default function Contact() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              sales@netrivya.com
+              Contact@netrivya.com
             </a>
           </div>
         </div>

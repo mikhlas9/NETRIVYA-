@@ -33,7 +33,6 @@ export default function Header() {
     { label: "WHATSAPP BUSINESS API", href: "/whatsapp-business-api" },
     { label: "PRICING", href: "/pricing" },
     { label: "CONTACT US", href: "/contact" },
-    { label: "BLOG", href: "#" },
     { label: "LOGIN", href: "#", hasDropdown: true },
     { label: "SIGN UP", href: "#" },
   ]

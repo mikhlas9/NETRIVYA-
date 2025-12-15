@@ -53,6 +53,7 @@ export default function OutOfBoxFeatures() {
                   width={160}
                   height={160}
                   className="object-contain"
+                  style={{ filter: 'hue-rotate(140deg) saturate(0.9)' }}
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>

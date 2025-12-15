@@ -52,13 +52,14 @@ export default function SMSTypes() {
                   width={500}
                   height={300}
                   className="object-contain w-full"
+                  style={{ filter: 'hue-rotate(140deg) saturate(0.9)' }}
                 />
               </div>
             </div>
             <div className="order-2">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{smsTypes[0].title}</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">{smsTypes[0].desc}</p>
-              <a href="#" className="text-pink-500 font-semibold hover:text-pink-600 transition">
+              <a href="#" className="text-teal-600 font-semibold hover:text-teal-700 transition">
                 {smsTypes[0].link} →
               </a>
             </div>
@@ -69,7 +70,7 @@ export default function SMSTypes() {
             <div className="order-2 md:order-1">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{smsTypes[1].title}</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">{smsTypes[1].desc}</p>
-              <a href="#" className="text-pink-500 font-semibold hover:text-pink-600 transition">
+              <a href="#" className="text-teal-600 font-semibold hover:text-teal-700 transition">
                 {smsTypes[1].link} →
               </a>
             </div>
@@ -81,6 +82,7 @@ export default function SMSTypes() {
                   width={500}
                   height={300}
                   className="object-contain w-full"
+                  style={{ filter: 'hue-rotate(140deg) saturate(0.9)' }}
                 />
               </div>
             </div>
@@ -96,13 +98,14 @@ export default function SMSTypes() {
                   width={500}
                   height={300}
                   className="object-contain w-full"
+                  style={{ filter: 'hue-rotate(140deg) saturate(0.9)' }}
                 />
               </div>
             </div>
             <div className="order-2">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{smsTypes[2].title}</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">{smsTypes[2].desc}</p>
-              <a href="#" className="text-pink-500 font-semibold hover:text-pink-600 transition">
+              <a href="#" className="text-teal-600 font-semibold hover:text-teal-700 transition">
                 {smsTypes[2].link} →
               </a>
             </div>
