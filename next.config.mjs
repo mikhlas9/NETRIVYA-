@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 👇 this tells Next.js to generate a static `out` folder
-  output: 'export',
+  // Removed 'output: export' to support API routes
+  // API routes require a server environment (Vercel, Netlify, or custom server)
   
-  // Ensure trailing slashes for better compatibility with static hosting
+  // Ensure trailing slashes for better compatibility
   trailingSlash: true,
 
   typescript: {
@@ -11,7 +11,6 @@ const nextConfig = {
   },
 
   images: {
-    // needed for static export when using next/image
     unoptimized: true,
   },
 };
