@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -44,6 +44,17 @@ export default function ContactForm() {
   } = useForm({
     resolver: zodResolver(contactSchema)
   });
+
+  // Track conversion when success dialog is shown
+  useEffect(() => {
+    if (showSuccess && typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-17856277749/rowCCM6IieEbEPXZxMJC',
+        'value': 1.0,
+        'currency': 'INR'
+      });
+    }
+  }, [showSuccess]);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
