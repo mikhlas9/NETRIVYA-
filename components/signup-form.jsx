@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -34,14 +34,28 @@ const signupSchema = z.object({
 });
 
 const countries = [
-  'United States', 'Canada', 'United Kingdom', 'Australia', 'Germany', 
-  'France', 'India', 'Japan', 'Brazil', 'Mexico', 'Other'
+  { name: 'United States', code: '+1' },
+  { name: 'Canada', code: '+1' },
+  { name: 'United Kingdom', code: '+44' },
+  { name: 'Australia', code: '+61' },
+  { name: 'Germany', code: '+49' },
+  { name: 'France', code: '+33' },
+  { name: 'India', code: '+91' },
+  { name: 'Japan', code: '+81' },
+  { name: 'Brazil', code: '+55' },
+  { name: 'Mexico', code: '+52' },
+  { name: 'Other', code: '+1' }
 ];
+
+const countryCodeMap = Object.fromEntries(
+  countries.map(c => [c.name, c.code])
+);
 
 export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [successData, setSuccessData] = useState(null);
+  const [selectedCountryCode, setSelectedCountryCode] = useState('+1');
 
   const {
     register,
@@ -65,17 +79,33 @@ export default function SignupForm() {
   });
 
   const watchedServices = watch('services');
+  const watchedCountry = watch('country');
+
+  // Update country code when country changes
+  useEffect(() => {
+    if (watchedCountry) {
+      const code = countryCodeMap[watchedCountry] || '+1';
+      setSelectedCountryCode(code);
+    }
+  }, [watchedCountry]);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     
     try {
+      // Combine country code with mobile number
+      const fullMobileNumber = `${selectedCountryCode}${data.mobileNumber}`;
+      const submitData = {
+        ...data,
+        mobileNumber: fullMobileNumber
+      };
+
       const response = await fetch('/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(submitData),
       });
 
       const result = await response.json();
@@ -198,14 +228,21 @@ export default function SignupForm() {
                 
                 <div>
                   <Label htmlFor="country" className="text-gray-700 font-medium">Country *</Label>
-                  <Select onValueChange={(value) => setValue('country', value)}>
+                  <Select 
+                    value={watchedCountry}
+                    onValueChange={(value) => {
+                      setValue('country', value);
+                      const code = countryCodeMap[value] || '+1';
+                      setSelectedCountryCode(code);
+                    }}
+                  >
                     <SelectTrigger className={`mt-2 border-gray-300 focus:border-teal-500 focus:ring-teal-500 ${errors.country ? 'border-red-500' : ''}`}>
                       <SelectValue placeholder="Select Country" />
                     </SelectTrigger>
                     <SelectContent>
                       {countries.map((country) => (
-                        <SelectItem key={country} value={country}>
-                          {country}
+                        <SelectItem key={country.name} value={country.name}>
+                          {country.name} ({country.code})
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -219,7 +256,7 @@ export default function SignupForm() {
                   <Label htmlFor="mobileNumber" className="text-gray-700 font-medium">Mobile Number *</Label>
                   <div className="flex mt-2">
                     <span className="inline-flex items-center px-4 text-sm text-gray-700 bg-gray-100 border border-r-0 border-gray-300 rounded-l-lg font-medium">
-                      +1
+                      {selectedCountryCode}
                     </span>
                     <Input
                       id="mobileNumber"
